@@ -1,1 +1,1 @@
-web: gunicorn stock_app.py:server
+web: gunicorn stock_app:server
