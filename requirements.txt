@@ -1,0 +1,4 @@
+dash
+gunicorn
+yahoo_fin
+pandas
