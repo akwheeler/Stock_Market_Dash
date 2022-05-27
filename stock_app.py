@@ -53,4 +53,4 @@ def earnings_stats(stock_picker_button,stock_picker):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
