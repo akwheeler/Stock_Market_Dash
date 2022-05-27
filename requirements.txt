@@ -2,3 +2,4 @@ dash
 gunicorn
 yahoo_fin
 pandas
+dash_bootstrap_components
