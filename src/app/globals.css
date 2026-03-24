@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0e17;
+  --foreground: #e2e8f0;
+  --card-bg: #111827;
+  --card-border: #1e293b;
+  --terminal-green: #00e676;
+  --terminal-red: #ff1744;
+  --terminal-amber: #ffab00;
+  --terminal-blue: #2979ff;
+  --terminal-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-muted);
+}
+
+@layer components {
+  .card {
+    @apply bg-[#111827] border border-[#1e293b] rounded-lg p-4;
+  }
+
+  .card-header {
+    @apply text-xs uppercase tracking-wider text-[#64748b] mb-2;
+  }
+
+  .metric-value {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  .badge-buy {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-bold;
+    background: rgba(0, 230, 118, 0.2);
+    color: #00e676;
+    border: 1px solid rgba(0, 230, 118, 0.3);
+  }
+
+  .badge-sell {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-bold;
+    background: rgba(255, 23, 68, 0.2);
+    color: #ff1744;
+    border: 1px solid rgba(255, 23, 68, 0.3);
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-bold;
+    background: rgba(255, 171, 0, 0.2);
+    color: #ffab00;
+    border: 1px solid rgba(255, 171, 0, 0.3);
+  }
+
+  .tab-button {
+    @apply px-4 py-2 text-sm font-medium transition-colors duration-150;
+  }
+
+  .tab-button.active {
+    color: #2979ff;
+    border-bottom: 2px solid #2979ff;
+  }
+
+  .tab-button:not(.active) {
+    color: #64748b;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab-button:not(.active):hover {
+    color: #e2e8f0;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: #1e293b;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-300 ease-out;
+    background: linear-gradient(90deg, #2979ff, #00e676);
+  }
+
+  .signal-table {
+    @apply w-full text-sm;
+  }
+
+  .signal-table th {
+    @apply text-left text-xs uppercase tracking-wider pb-2;
+    color: #64748b;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .signal-table td {
+    @apply py-2;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+  }
+
+  .disclaimer {
+    @apply text-xs italic pt-4 mt-6;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+  }
+}
+
+.recharts-cartesian-grid line {
+  stroke: #1e293b;
+}
+
+.recharts-text {
+  fill: #64748b;
+  font-size: 11px;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+input[type="range"] {
+  @apply w-full h-1.5 rounded-lg appearance-none cursor-pointer;
+  background: #1e293b;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2979ff;
+}
